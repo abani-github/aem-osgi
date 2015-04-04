@@ -1,0 +1,27 @@
+<head>
+    <meta data-sly-use.init="edu.arb.aemhut.Init" charset="utf-8">
+    <title>${properties.browserTitle || properties.jcr:title || "No Title"}</title>
+    <div data-sly-include="link.html" data-sly-unwrap=""></div>
+</head>
+<script>
+    (function() {
+        var cfg = ${init.undoConfig @ context="unsafe"};
+        cfg.pagePath = "${currentPage.path @ context='uri'}";
+
+        if (CQClientLibraryManager.channelCB() != "touch") {
+            var isEditMode = ${wcmmode.edit @ context='unsafe'};
+            if (!isEditMode) {
+                cfg.enabled = false;
+            }
+            CQ.undo.UndoManager.initialize(cfg);
+            CQ.Ext.onReady(function() {
+                CQ.undo.UndoManager.detectCachedPage("${init.currentTimeMillis @ context='scriptString'}");
+            });
+        }
+    })();
+    CQ.WCM.launchSidekick("${currentPage.path @ context='uri'}", {
+        propsDialog: "${init.dlgPath @ context='uri'}",
+        locked: ${currentPage.locked @ context='unsafe'},
+        previewReload: true
+    });
+</script>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Dialog"
+          helpPath="en/cq/current/wcm/default_components.html#Title"
+          title="Heading Component"
+          xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <title
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Title Component"
+            fieldLabel="Title"
+            name="./title"
+            xtype="textfield"/>
+        <headingstyle
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Heading Style (h3, h4, h5 or h6)"
+            fieldLabel="Heading Style"
+            defaultText="h5"
+            defaultValue="h5"
+            name="./headingStyle"
+            type="select"
+            xtype="selection">
+            <options jcr:primaryType="cq:WidgetCollection">
+                <h1
+                    jcr:primaryType="nt:unstructured"
+                    text="h1"
+                    value="h1"/>
+                <h2
+                    jcr:primaryType="nt:unstructured"
+                    text="h2"
+                    value="h2"/>
+                <h3
+                    jcr:primaryType="nt:unstructured"
+                    text="h3"
+                    value="h3"/>
+                <h4
+                    jcr:primaryType="nt:unstructured"
+                    text="h4"
+                    value="h4"/>
+                <h5
+                    jcr:primaryType="nt:unstructured"
+                    text="h5"
+                    value="h5"/>
+                <h6
+                    jcr:primaryType="nt:unstructured"
+                    text="h6"
+                    value="h6"/>
+            </options>
+        </headingstyle>
+    </items>
+</jcr:root>
